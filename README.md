@@ -35,8 +35,8 @@ All database - related operation in Flask was implemented using raw SQL commands
 
 ## How to use?
 
-1. Start project on Heroku and get ([<u>for free</u>](www.heroku.com)) database URL.
-2. Get key from GoodRead's API ([<u>free too</u>](www.goodreads.com/api)).
+1. Start project on Heroku and get ([<u>for free</u>](http://www.heroku.com)) database URL.
+2. Get key from GoodRead's API ([<u>free too</u>](http://www.goodreads.com/api)).
 3. *[optional]* Add your books to `books.csv` database.
 4. Run `create_database.py`  (<u>remember to insert your database URL</u>).
 5. Run `import.py` (<u>remember to insert your database URL and API_key</u>)
