@@ -52,3 +52,14 @@ Database URL and API-Key should be paste in following lines:
 
 ## Using API
 App contain simple API, that can be accessible via a **GET** request to `/API/ISBN` route, where `ISBN` is an ISBN number of book. In this scenario, page will  return a JSON response containing the book's title, author, publication date, ISBN number, review count, and average score. If book is in database, it should return error page.
+
+## Screenshots
+
+
+<img width="600" height="400" src=Screenshots/WelcomePage.JPG>
+
+<img width="600" height="400" src=Screenshots/SearchPage.JPG>
+
+  <img width="600" height="400" src=Screenshots/WithoutCommentPage.JPG>
+
+  <img width="600" height="400" src=Screenshots/3commentPage.JPG>
