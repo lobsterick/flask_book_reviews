@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    About: {{ book.title }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container text-center">
+        <div class="col-xl-">
+            <div class="jumbotron vertical-center">
+                <div class="container">
+                    <h1 class="display-2"><b>{{ book.title }}</b></h1>
+                    <h1 class="display-4"><i>{{ book.author }}</i></h1>
+                    <p></p>
+                    <p class="lead">Year of publication: {{ book.publication_year }}</p>
+                    <p class="lead">ISBN: {{ book.isbn }}</p>
+                    <p class=""lead>Rating on this page: {{ comments_avg }} ({{ comments_numbers }} votes)</p>
+
+                    {% if goodreads_rating and goodreads_rating_voters_number %}
+                        <p class=lead">Rating on <span style="color:#946e09;">Good<b>Reads</b></span>: {{ goodreads_rating }} ({{ goodreads_rating_voters_number }} votes)</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-2 col-md-12"></div>
+    <div class="mt-2 col-md-12"></div>
+
+    {% if is_commented == 0 %}
+        <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <div class="container text-center">
+                <div class="jumbotron vertical-center" style="background-color: #282a46">
+                    <div class="container">
+                        <form action="/book/{{ book.isbn }}/addcomment" method="POST">
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div class="col-sm" align="left">
+                                        <h5>Add comments as: {{ user }}</h5>
+                                    </div>
+                                    <div class="col-sm" align="center">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="new_rating" id="inlineRadio1" value="1" required>
+                                            <label class="form-check-label" for="inlineRadio1">1</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="new_rating" id="inlineRadio2" value="2" required>
+                                            <label class="form-check-label" for="inlineRadio2">2</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="new_rating" id="inlineRadio3" value="3" required>
+                                            <label class="form-check-label" for="inlineRadio3">3</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="new_rating" id="inlineRadio4" value="4" required>
+                                            <label class="form-check-label" for="inlineRadio4">4</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="new_rating" id="inlineRadio5" value="5" required>
+                                            <label class="form-check-label" for="inlineRadio5">5</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm" align="right">
+                                        <button class="btn btn-info" type="submit">Submit comment</button>
+                                    </div>
+                                    <div class="mt-2 col-md-12"></div>
+                                    <div class="mt-2 col-md-12"></div>
+
+                                    <textarea class="form-control mr-sm-2" type="text" placeholder="Comment text here" name="new_comment_body" id="commentbody" rows="5" required></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+    {% endif %}
+
+    <div class="mt-2 col-md-12"></div>
+    <div class="mt-2 col-md-12"></div>
+
+    {% if comments %}
+        <div class="row justify-content-md-center">
+        <div class="col-md-7">
+        {% for comment in comments %}
+            <div class="container text-center">
+                <div class="col-xl-">
+                    <div class="jumbotron vertical-center" style="background-color: #343653" padding="0.5em">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-sm" align="left">
+                                    <h4>Author: {{ comment.author }}</h4>
+                                </div>
+                                <div class="col-sm" align="right">
+                                    <h4>Rating: {{ comment.rating }}</h4>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <div align="left" size="40">
+                                {{ comment.comment_body }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2 col-md-12"></div>
+
+
+        {% endfor %}
+        </div></div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/main.css">
+
+</head>
+
+
+<body>
+
+<div class="navbar sticky-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Lobsterick's Project 1 for CS50</a>
+
+
+    {% if session['logged_in'] %}
+
+        <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search book..." name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
+            <a href="/logout">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="button">Logout</button>
+            </a>
+        </form>
+
+    {% else %}
+
+        <form class="form-inline my-2 my-lg-0" action="/login" method="POST">
+            <div class="col-auto pl-0">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user"></i></div>
+                    </div>
+                    <input type="text" class="form-control" value="" placeholder="username" name="username">
+                </div>
+            </div>
+            <div class="col-auto pl-0">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                    </div>
+                    <input type="password" class="form-control" value="" placeholder="password" name="password">
+                </div>
+            </div>
+            <div class="col-auto pl-0 pr-0">
+                <button class="btn btn-outline-danger my-2 my-sm-0 mr-sm-2" type="submit">Login</button>
+            </div>
+            <a href="/register">
+                <button class="btn btn-info my-2 my-sm-0" type="button">Register</button>
+            </a>
+        </form>
+    {% endif %}
+    </nav>
+</div>
+
+<div class="mt-2 col-md-12"></div>
+
+{% if info_type and info_text %}
+{% if info_type == "succes" %}
+    <div class="alert alert-success" role="alert">
+        {{ info_text }}
+    </div>
+{% elif info_type == "error" %}
+    <div class="alert alert-danger" role="alert">
+        {{ info_text }}
+    </div>
+{% elif info_type == "neutral" %}
+    <div class="alert alert-info" role="alert">
+        {{ info_text }}
+    </div>
+{% endif %}
+{% endif %}
+
+
+{% block body %}{% endblock %}
+
+
+</body>
+</html>

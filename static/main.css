@@ -1,0 +1,16 @@
+body {
+    height:100vh;
+    background-image: url("background.png");
+}
+
+.jumbotron {
+    background-color: #343a40;
+    color: white;
+    margin-bottom: 0!important;
+    margin-top: 0!important;
+    align-items: center;
+}
+
+hr{
+  border-top: 5px solid white;
+}
