@@ -16,11 +16,11 @@ This is Flask file for using web app with possibility of:
 
 ### import.py
 
-This is python script, importing CSV data from `books.csv` file (*a 5000 book database avaliable in this project*) to database located on Heroku's PostgreSQL.
+This is python script, importing CSV data from `books.csv` file (*a 5000 book database available in this project*) to database located on Heroku's PostgreSQL.
 
 ### create_database
 
-This is python script creating all databases nessesary in this project.
+This is python script creating all databases necessary in this project.
 
 
 ## Technologies used
@@ -35,8 +35,8 @@ All database - related operation in Flask was implemented using raw SQL commands
 
 ## How to use?
 
-1. Start project on Heroku and get ([<u>for free</u>](heroku.com)) database URL.
-2. Get key from GoodRead's API ([<u>free too</u>](goodreads.com/api)).
+1. Start project on Heroku and get ([<u>for free</u>](www.heroku.com)) database URL.
+2. Get key from GoodRead's API ([<u>free too</u>](www.goodreads.com/api)).
 3. *[optional]* Add your books to `books.csv` database.
 4. Run `create_database.py`  (<u>remember to insert your database URL</u>).
 5. Run `import.py` (<u>remember to insert your database URL and API_key</u>)
@@ -51,4 +51,4 @@ Database URL and API-Key should be paste in following lines:
 `
 
 ## Using API
-App contain simple API, that can be accessible via a **GET** request to `/api/ISBN` route, where `ISBN` is an ISBN number of book. In this scenario, page will  return a JSON response containing the book’s title, author, publication date, ISBN number, review count, and average score. If book is in database, it should return error page.
+App contain simple API, that can be accessible via a **GET** request to `/API/ISBN` route, where `ISBN` is an ISBN number of book. In this scenario, page will  return a JSON response containing the books title, author, publication date, ISBN number, review count, and average score. If book is in database, it should return error page.
