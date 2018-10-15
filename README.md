@@ -41,7 +41,7 @@ All database - related operation in Flask was implemented using raw SQL commands
 4. Run `create_database.py`  (<u>remember to insert your database URL</u>).
 5. Run `import.py` (<u>remember to insert your database URL and API_key</u>)
 4. Start server from `application.py`.
-5. Go to server IP page (something like `127.0.0.1:500`).
+5. Go to server IP page (something like `127.0.0.1:5000`).
 
 Database URL and API-Key should be paste in following lines:
 
@@ -51,4 +51,4 @@ Database URL and API-Key should be paste in following lines:
 `
 
 ## Using API
-App contain simple API, that can be accessible via a **GET** request to `/API/ISBN` route, where `ISBN` is an ISBN number of book. In this scenario, page will  return a JSON response containing the books title, author, publication date, ISBN number, review count, and average score. If book is in database, it should return error page.
+App contain simple API, that can be accessible via a **GET** request to `/API/ISBN` route, where `ISBN` is an ISBN number of book. In this scenario, page will  return a JSON response containing the book's title, author, publication date, ISBN number, review count, and average score. If book is in database, it should return error page.
